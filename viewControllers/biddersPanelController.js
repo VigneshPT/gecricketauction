@@ -1,5 +1,28 @@
 module.exports.controller = function(app){
 	 require('../helpers/gecaHelper').gecaHelper.prePopulateCaptains();
+	 var Captain = require('../models/captain.js').Captain;
+	 app.get('/team/:passcode',function(req,res){
+	 	var passcode = req.params.passcode;
+	 	var teamName = "";
+	 	switch(passcode){
+	 		case 1010:
+	 			//this is for Ninjas
+	 			teamName = "Ninjas";break;
+	 		case 2121:
+	 			teamName = "Red Hawks";break;
+	 		case 3434:
+	 			teamName = "Gillies";break;
+	 		case 5656:
+	 			teamName = "Kiwis";break;
+	 	}
+	 	Captain.findOne({teamName:teamName},function(err,captainObj){
+	 		if(err)
+	 			throw err;
+	 		else
+	 			res.render("biddersPanel/index",Captain.find({teamName:teamName}));
+	 	});
+	 	
+	 });
 }
 
 
