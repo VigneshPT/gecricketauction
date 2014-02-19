@@ -20,7 +20,11 @@ module.exports.controller = function(app){
 	 			throw err;
 	 		else{
 	 			console.log(JSON.stringify(captainObj));
-	 			res.render("biddersPanel/index",{team:captainObj,guiType:"bidder"});
+	 			if(captainObj ==null || typeof captainObj == "undefined"){
+	 				res.send("Sorry, you are not authorized.");
+	 			}
+	 			else	
+	 				res.render("biddersPanel/index",{team:captainObj,guiType:"bidder"});
 	 		}
 	 	});
 	 	
