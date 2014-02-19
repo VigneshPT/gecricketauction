@@ -7,7 +7,8 @@ var express = require('express'),
 	http = require('http'),
 	path = require('path'),
 	fs = require('fs'),
-	app = express();
+	app = express(),
+  mongoose = require('mongoose');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -36,8 +37,13 @@ fs.readdirSync(__dirname+'/viewControllers').forEach(function (file) {
       route.controller(app);
   }
 });
+var server = http.createServer(app);
 
-http.createServer(app).listen(app.get('port'), function(){
+var io = require('socket.io').listen(server);
+require(__dirname+"/socket")(io);
+
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+  mongoose.connect("mongodb://localhost/geca");
 });
 exports.app = app;
