@@ -6,7 +6,8 @@ var playerSchema = new Schema({
 		skillType: 		String,
 		bidStatus: 		Boolean,
 		basePrice: 		Number,  
-		biddedFor: 		Number
+		biddedFor: 		Number,
+		profileImageUrl:String
 });
 //if model is already defined, then creating it again will throw exception. 
 //so, use model if already created, otherwise, create model.
