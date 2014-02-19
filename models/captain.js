@@ -3,8 +3,7 @@ var Schema = mongoose.Schema;
 var captainSchema = new Schema({
 		name: 			String,
 		teamName: 		String,  
-		pointsRemaining:Number,
-		guiType: 		{type:String,default:"bidder"}  //guiType = "bidder"  
+		pointsRemaining:Number
 });
 //if model is already defined, then creating it again will throw exception. 
 //so, use model if already created, otherwise, create model.

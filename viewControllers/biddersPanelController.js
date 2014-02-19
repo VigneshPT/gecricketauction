@@ -20,7 +20,7 @@ module.exports.controller = function(app){
 	 			throw err;
 	 		else{
 	 			console.log(JSON.stringify(captainObj));
-	 			res.render("biddersPanel/index",{team:captainObj});
+	 			res.render("biddersPanel/index",{team:captainObj,guiType:"bidder"});
 	 		}
 	 	});
 	 	

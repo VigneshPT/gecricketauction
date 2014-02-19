@@ -1,6 +1,15 @@
 //dashboard is the view, that both the admin and viewers will see.
 module.exports.controller = function(app){
-	
+	app.get('/auction/:mode?/:keyphrase?',function(req,res){
+		var isAdminMode = req.params.mode=="admin";
+		var isAuthentic = req.params.keyphrase == "gecpl";
+		if(isAdminMode && isAuthentic){
+			res.render("dashboard/index",{guiType:"admin"})
+		}
+		else{
+			res.render("dashboard/index",{guiType:"viewer"});
+		}
+	});
 }
 
 module.exports.socket = function(socket,allSockets){
