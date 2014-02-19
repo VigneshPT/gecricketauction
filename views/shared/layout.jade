@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/global/geatstrap.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		block styles
+	body
+		block content
+	
+	script(src='/javascripts/angular.min.js')
+	script(src='/javascripts/geca-angular-app/app.js')
+	block scripts
