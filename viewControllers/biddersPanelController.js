@@ -5,21 +5,23 @@ module.exports.controller = function(app){
 	 	var passcode = req.params.passcode;
 	 	var teamName = "";
 	 	switch(passcode){
-	 		case 1010:
+	 		case "1010":
 	 			//this is for Ninjas
 	 			teamName = "Ninjas";break;
-	 		case 2121:
+	 		case "2121":
 	 			teamName = "Red Hawks";break;
-	 		case 3434:
+	 		case "3434":
 	 			teamName = "Gillies";break;
-	 		case 5656:
+	 		case "5656":
 	 			teamName = "Kiwis";break;
 	 	}
 	 	Captain.findOne({teamName:teamName},function(err,captainObj){
 	 		if(err)
 	 			throw err;
-	 		else
-	 			res.render("biddersPanel/index",Captain.find({teamName:teamName}));
+	 		else{
+	 			console.log(JSON.stringify(captainObj));
+	 			res.render("biddersPanel/index",{team:captainObj});
+	 		}
 	 	});
 	 	
 	 });

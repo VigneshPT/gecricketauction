@@ -1,0 +1,7 @@
+extends ../shared/layout
+block scripts
+	script
+		var team = #{JSON.stringify(team)};
+	script(src='/javascripts/geca-angular-app/controllers/bidderController.js')
+	div
+		!{JSON.stringify(team)}
