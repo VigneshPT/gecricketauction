@@ -40,7 +40,19 @@ module.exports.socket = function(socket,allSockets){
 	});
 
 	socket.on("changePlayer", function(data){
-		socket.broadcast.emit("updateChangedPlayer", data);
+		//find player that has bidstatus = "current", and mark him "notdone"
+		Player.findOne({bidStatus:"current"},function(err,currentPlayer){
+			currentPlayer.bidStatus = "notdone";
+			currentPlayer.save(function(){
+				//then find the switched player, and update his bidstatus to current
+				Player.findByIdAndUpdate(data.id || data._id, {bidStatus:"current"},function(){
+					data.bidStatus = "current";
+					allSockets.emit("updateChangedPlayer", data);
+				});
+			});
+			
+		});
+
 	});
 	socket.on('bidRaised',function(data){
 		//find the particular captain, and check if he has enough points to bid for the person.
@@ -85,7 +97,7 @@ module.exports.socket = function(socket,allSockets){
 			team.save(function(){});
 			Player.findOne({name:playerName},function(error,player){
 				player.teamName = data.teamName;
-				player.bidStatus = true;
+				player.bidStatus = "done";
 				player.biddedFor = data.bidAmount;
 				player.save(function(pSaveError){
 					if(pSaveError)
