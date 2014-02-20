@@ -1,4 +1,8 @@
 extends ../shared/layout
 block scripts
+	script.
+		var teamlist = !{JSON.stringify(teams)};
+		var players = !{JSON.stringify(players)};
 	script(src='/javascripts/geca-angular-app/controllers/dashController.js')
+	
 	include ../includes/display

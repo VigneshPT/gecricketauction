@@ -28,6 +28,7 @@ module.exports.controller = function(app){
 	 					if(error)
 	 						res.send(500,"Could not fetch list of teams");
 	 					else{
+	 						console.log(teamList);
 	 						res.render("biddersPanel/index",{team:captainObj,teamList:teamList,guiType:"bidder"});
 	 					}
 	 				})

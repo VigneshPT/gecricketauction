@@ -6,27 +6,29 @@ app.directive('userProfile', [function(){
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
 		controller: function($scope, $rootScope, $element, $attrs, $transclude) {
-			$scope.players = [{
-				name: "Shaul Hameed", 
-				skill: "Batsman",
-				baseprice: "10"
-			},
-			{
+			$scope.isAdmin = /admin\/gecpl/.test(window.location.pathname);
+			$scope.players =players;
 
-				name: "Vignesh", 
-				skill: "Bowler",
-				baseprice: "10"
-			}]
+			$scope.picture = "http://www.stepuptravel.org/images/dummy_user.gif";
+			for (var i = 0; i < players.length; i++) {
+				$scope.players[i].photo = (typeof $scope.players[i].photo !== "undefined" && $scope.players[i].photo !== ""  )? "http://graph.facebook.com/"+$scope.players[i].photo+"picture?width=200" : "http://www.stepuptravel.org/images/dummy_user.gif";
+				//$scope.players[i]
+			};
+			
 			$scope.currentPlayer = {};
-
-
+			setTimeout(function(){
+				angular.element(".select2-hidden-accessible").hide();
+			},1000)
+			$scope.showfields = false;
 			$scope.$watch("player2", function(nVal, oldVal){
 				if (nVal) {
 					$scope.currentPlayer = JSON.parse(nVal)
 					if (/admin\/gecpl/.test(window.location.pathname)) {
 						$rootScope.socket.emit("changePlayer", JSON.parse(nVal))
-					};		
-				};
+					};	
+					$scope.showfields = true;
+					$scope.picture = nVal.photo;
+				}
 			})
 
 			$rootScope.socket.on("updateChangedPlayer", function(data){
@@ -67,9 +69,9 @@ app.directive('bid', [function(){
 			
 		},
 		controller: ["$scope","$rootScope", function($scope, $rootScope){
-			$scope.team = [];
+			$scope.team = eval("teamlist");
 			//Socket starts here.
-			
+				
 			 $rootScope.socket.on("teamready", function(team){
 				$scope.team = team;
 				$scope.$apply();

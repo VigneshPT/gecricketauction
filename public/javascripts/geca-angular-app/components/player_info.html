@@ -2,11 +2,11 @@
 	<div class='player-title'>
 		<div class='col-xs-6'>
 			<div class='player-image'>
-				<img ng-src='{{userProfile.picture}}' />
+				<img ng-src='{{picture}}' />
 			</div>
 		</div>
 		<div class='col-xs-6'>
-			<select ui-select2 ng-model="player2" data-placeholder="Pick a player" style='padding-top:20px'>
+			<select ui-select2 ng-model="player2" data-placeholder="Pick a player" style='padding-top:20px' ng-disabled='!isAdmin'>
 					<option value=""></option>
 					<option data-ng-repeat='player in players' value="{{player}}" data-ng-bind='player.name'>First</option>
 			</select>
@@ -15,12 +15,12 @@
 				<!-- Akhil please change this to proper one -->
 			</div>
 			<div class='player-info'>
-				<div class='full-width' ng-bind='currentPlayer.skill'></div>
+				<div class='full-width' ng-bind='currentPlayer.skillType'></div>
 			</div>
-			<div class='player-info '>
+			<div class='player-info' data-ng-show='showfields'>
 				<div class='btn-primary btn white'>
 					<div class='bold'>Base Price:</div>
-					<div ng-bind='currentPlayer.baseprice'></div>
+					<div ng-bind='currentPlayer.basePrice'></div>
 				</div>
 			</div>
 		</div>
