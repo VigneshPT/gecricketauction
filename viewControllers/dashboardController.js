@@ -30,6 +30,9 @@ module.exports.socket = function(socket,allSockets){
 		allSockets.emit('switchPlayer',playerData);
 	});
 
+	socket.on("changePlayer", function(data){
+		socket.broadcast.emit("updateChangedPlayer", data);
+	});
 	socket.on('bidRaised',function(data){
 		//find the particular captain, and check if he has enough points to bid for the person.
 		Captain.findOne({teamName:data.from},function(err,team){

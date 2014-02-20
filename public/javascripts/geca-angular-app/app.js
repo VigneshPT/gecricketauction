@@ -1,4 +1,4 @@
-var app = angular.module('gecaApp',[]);
+var app = angular.module('gecaApp',['ui.directives']);
 app.controller('sharedController', ['$scope',"$rootScope", function($scope, $rootScope){
 	 $rootScope.socket = io.connect("http://"+window.location.hostname);
 	$scope.userProfile = {

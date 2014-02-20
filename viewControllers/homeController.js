@@ -7,9 +7,5 @@ module.exports.controller = function(app){
 }
 
 module.exports.socket = function(socket, allSocket){
-	var Captain = require("../models/captain").Captain;
-	var Player = require("../models/player").Player;
-	Captain.find(function(err, team){
-		socket.emit("teamready", team);
-	})
+
 }
