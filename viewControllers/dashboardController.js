@@ -1,14 +1,23 @@
 //dashboard is the view, that both the admin and viewers will see.
 module.exports.controller = function(app){
+	var Captain = require('../models/captain').Captain;
 	app.get('/auction/:mode?/:keyphrase?',function(req,res){
 		var isAdminMode = req.params.mode=="admin";
 		var isAuthentic = req.params.keyphrase == "gecpl";
-		if(isAdminMode && isAuthentic){
-			res.render("dashboard/index",{guiType:"admin"})
-		}
-		else{
-			res.render("dashboard/index",{guiType:"viewer"});
-		}
+		Captain.find({},function(err,teams){
+			if(err)
+				res.send(500,"Could not get list of teams");
+			else{
+				if(isAdminMode && isAuthentic){
+					res.render("dashboard/index",{guiType:"admin",teams:teams})
+				}
+				else{
+					res.render("dashboard/index",{guiType:"viewer",teams:teams});
+				}	
+			}
+			
+		});
+		
 	});
 }
 
