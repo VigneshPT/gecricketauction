@@ -23,8 +23,16 @@ module.exports.controller = function(app){
 	 			if(captainObj ==null || typeof captainObj == "undefined"){
 	 				res.send("Sorry, you are not authorized.");
 	 			}
-	 			else	
-	 				res.render("biddersPanel/index",{team:captainObj,guiType:"bidder"});
+	 			else{	
+	 				Captain.find({},function(error,teamList){
+	 					if(error)
+	 						res.send(500,"Could not fetch list of teams");
+	 					else{
+	 						res.render("biddersPanel/index",{team:captainObj,teamList:teamList,guiType:"bidder"});
+	 					}
+	 				})
+	 				
+	 			}
 	 		}
 	 	});
 	 	
