@@ -1,0 +1,25 @@
+extends ../shared/layout
+block scripts
+		script.
+			var player = !{JSON.stringify(player)}
+		script(src='/javascripts/geca-angular-app/controllers/editPlayerController.js')
+
+block content	
+	div(ng-controller='editPlayerController')
+		div(style='text-align:center')
+			div
+				span Name:
+				input(data-ng-model="currentPlayer.name", type="text")
+			div
+				span Skill:
+				select(data-ng-model="currentPlayer.skillType", data-ng-options="category for category in categories")
+			div
+				span Base Price:
+				input(data-ng-model="currentPlayer.basePrice", type="text")
+
+			div
+				span Profile Picture URL:
+				input(data-ng-model="currentPlayer.profileImageUrl", input="text")
+			div
+				input(type="button",data-ng-click="submitPlayer()", value="Submit")
+				input(type="button",data-ng-click="removePlayer()",value="Remove Player")

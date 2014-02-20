@@ -65,7 +65,7 @@ a {
 }
 .player-info div {
   display: table-cell;
-  padding-right: 6px;
+  
 }
 .full-width {
   width: 100%;
@@ -110,5 +110,9 @@ transition: width 0.3s;
     
 }
 .bid-container {
-  padding: 20px;
+  padding: 15px;
 }
+.heading-1{font-size:24px; line-height:48px;}
+.col-xs-5 .container-fluid{margin-top: 0;}
+.select2-container .select2-choice{height: auto !important;}
+.select2-container .select2-choice > .select2-chosen{margin-right: 32px !important;font-size: 24px;}

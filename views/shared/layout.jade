@@ -4,13 +4,18 @@ html
 		title= title
 		link(href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css')
 		link(rel='stylesheet', href='/stylesheets/global/geatstrap.css')
+		link(rel='stylesheet', href='/stylesheets/select2.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		block styles
 	body(ng-app='gecaApp')
 		block content
 	
-	script(type='text/javascript', src='/socket.io/socket.io.js')
+	script(src='/socket.io/socket.io.js')
+	script(src='/javascripts/jquery.js')
 	script(src='/javascripts/angular.min.js')
+	script(src='/javascripts/angular-ui.js')
+	script(src='/javascripts/jquery-select2.js')
+	script(src='/javascripts/select2.js')
 	script(src='/javascripts/geca-angular-app/app.js')
 	script(src='/javascripts/geca-angular-app/directives/player_profile.js')
 

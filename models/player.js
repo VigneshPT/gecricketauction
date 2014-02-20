@@ -4,7 +4,7 @@ var playerSchema = new Schema({
 		name: 			String,
 		teamName: 		String,
 		skillType: 		String,
-		bidStatus: 		Boolean,
+		bidStatus: 		String, //"current","done","notdone"
 		basePrice: 		Number,  
 		biddedFor: 		Number,
 		profileImageUrl:String
