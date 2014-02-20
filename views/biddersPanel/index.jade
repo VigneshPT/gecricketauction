@@ -3,6 +3,7 @@ block scripts
 	script.
 		var teamname = "#{team.teamName}";
 	script(src='/javascripts/geca-angular-app/controllers/bidderController.js')
+block content	
 	div(ng-controller='bidderController')
 		if(team.teamName)
 			div(style='text-align:center')
