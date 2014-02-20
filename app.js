@@ -42,8 +42,17 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 require(__dirname+"/socket")(io);
 
+var connection_string = '127.0.0.1:27017/geca';
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+  connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+  process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+  process.env.OPENSHIFT_APP_NAME;
+}
+
 server.listen(app.get('port'),process.env.OPENSHIFT_NODEJS_IP||"localhost", function(){
   console.log('Express server listening on port ' + app.get('port'));
-  mongoose.connect("mongodb://localhost/geca");
+  mongoose.connect("mongodb://"+connection_string);
 });
 exports.app = app;
