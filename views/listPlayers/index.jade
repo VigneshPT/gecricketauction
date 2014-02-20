@@ -1,0 +1,13 @@
+extends ../shared/layout
+block content
+    div
+        table.rounds-table
+            thead
+                tr
+                    td Player Name
+            tbody
+                each player, i in players
+                    tr
+                        td 
+                            a(href="/editPlayer/#{player.id}")
+                                !{player.name}
