@@ -1,6 +1,7 @@
 <div class='container-fluid'>
 	<div class='bid-container' ng-repeat='t in team'>
-		<div ng-bind='t.teamName' data-ng-if='t.teamName === currentTeam'>
+
+		<div class="bold heading-1" ng-bind='t.teamName' data-ng-if='t.teamName === currentTeam'>
 		</div>
 		<div class='btn btn-primary btn-lg' data-ng-if='t.teamName === currentTeam' style='width: 150px;
 }'>

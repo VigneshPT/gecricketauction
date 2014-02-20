@@ -1,5 +1,8 @@
 <div class='player'>
 	<div class='player-title'>
+        <div class='col-xs-12'>
+			<div class='player-info player-name'>
+			<div class='bold col-xs-12' ng-bind='userProfile.name'></div>
 		<div class='col-xs-6'>
 			<div class='player-image'>
 				<img ng-src='{{picture}}' />
@@ -17,12 +20,20 @@
 			<div class='player-info'>
 				<div class='full-width' ng-bind='currentPlayer.skillType'></div>
 			</div>
+<<<<<<< HEAD
 			<div class='player-info' data-ng-show='showfields'>
 				<div class='btn-primary btn white'>
+=======
+		</div>
+		<div class='col-xs-12'>
+            <div class='player-info base-price'>
+				<div class='btn-primary btn white text-glow'>
+>>>>>>> 2f28aa17f1aa3cdad05e8ea78a33b0d76344206f
 					<div class='bold'>Base Price:</div>
 					<div ng-bind='currentPlayer.basePrice'></div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
