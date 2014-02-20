@@ -4,6 +4,7 @@ module.exports.controller = function(app){
 	app.get('/auction/:mode?/:keyphrase?',function(req,res){
 		var isAdminMode = req.params.mode=="admin";
 		var isAuthentic = req.params.keyphrase == "gecpl";
+		//get the list of teams, for the auction as well as admin page.
 		Captain.find({},function(err,teams){
 			if(err)
 				res.send(500,"Could not get list of teams");
