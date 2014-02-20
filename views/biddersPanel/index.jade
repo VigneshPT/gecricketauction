@@ -5,7 +5,7 @@ block scripts
 	script(src='/javascripts/geca-angular-app/controllers/bidderController.js')
 	div(ng-controller='bidderController')
 		if(team.teamName)
-			div(style='text-align:center')
+			div.team-name
 				h1 #{team.teamName}
 		include ../includes/display
 		

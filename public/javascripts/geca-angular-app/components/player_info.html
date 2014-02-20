@@ -1,23 +1,24 @@
 <div class='player'>
 	<div class='player-title'>
-		<div class='col-xs-6'>
-			<div class='player-image'>
-				<img ng-src='{{userProfile.picture}}' />
-			</div>
-		</div>
-		<div class='col-xs-6'>
-			<div class='player-info'>
+        <div class='col-xs-12'>
+			<div class='player-info player-name'>
 				<div class='bold' ng-bind='userProfile.name'></div>
 			</div>
 			<div class='player-info'>
 				<div class='full-width' ng-bind='userProfile.profile'></div>
 			</div>
-			<div class='player-info '>
-				<div class='btn-primary btn white'>
+		</div>
+		<div class='col-xs-12'>
+			<div class='player-image'>
+				<img ng-src='{{userProfile.picture}}' />
+			</div>
+            <div class='player-info base-price'>
+				<div class='btn-primary btn white text-glow'>
 					<div class='bold'>Base Price:</div>
 					<div ng-bind='userProfile.baseprice'>$</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
