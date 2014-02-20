@@ -2,12 +2,15 @@ doctype html
 html
 	head
 		title= title
+		link(href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css')
 		link(rel='stylesheet', href='/stylesheets/global/geatstrap.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		block styles
 	body
 		block content
 	
+	script(src='/javascripts/socket.io/socket.io.js')
 	script(src='/javascripts/angular.min.js')
 	script(src='/javascripts/geca-angular-app/app.js')
+
 	block scripts

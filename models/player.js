@@ -12,6 +12,7 @@ var playerSchema = new Schema({
 //if model is already defined, then creating it again will throw exception. 
 //so, use model if already created, otherwise, create model.
 var Player = undefined;
+
 try{
 	Player = mongoose.model('Player');
 }

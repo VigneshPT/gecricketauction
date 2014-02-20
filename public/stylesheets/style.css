@@ -1,7 +1,41 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
   color: #00b7ff;
+}
+.row .frame {
+  border: 1px solid #dfdfdf;
+  min-height: 500px;
+}
+.player-image {
+  margin: 14px 0 0 0;
+}
+.player-info {
+  color: #000;
+}
+.player-title {
+  font-family: 'Varela Round', sans-serif;
+}
+.player-title .player-info {
+  display: table;
+  padding: 22px 0 0 0;
+}
+.bold {
+  font-weight: bold;
+}
+.player-info div {
+  display: table-cell;
+  padding-right: 6px;
+}
+.full-width {
+  width: 100%;
+}
+.white {
+  color: #fff;
+}
+.separator {
+  border-right: 1px solid #e9e9e9;
+  min-height: 500px;
 }
