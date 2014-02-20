@@ -11,7 +11,7 @@
 		<div class='col-xs-6'>
 			<select ui-select2 ng-model="player2" data-placeholder="Pick a player" style='padding-top:20px' ng-disabled='!isAdmin'>
 					<option value=""></option>
-					<option data-ng-repeat='player in players' value="{{player}}" data-ng-bind='player.name'>First</option>
+					<option data-ng-repeat='player in players' value="{{player}}" data-ng-bind='player.name'></option>
 			</select>
 			<div class='player-info'>
 				<!-- <div class='bold' ng-bind='userProfile.name'></div> -->
@@ -20,15 +20,11 @@
 			<div class='player-info'>
 				<div class='full-width' ng-bind='currentPlayer.skillType'></div>
 			</div>
-<<<<<<< HEAD
-			<div class='player-info' data-ng-show='showfields'>
-				<div class='btn-primary btn white'>
-=======
+
 		</div>
 		<div class='col-xs-12'>
-            <div class='player-info base-price'>
+            <div class='player-info base-price' data-ng-show='showfields'>
 				<div class='btn-primary btn white text-glow'>
->>>>>>> 2f28aa17f1aa3cdad05e8ea78a33b0d76344206f
 					<div class='bold'>Base Price:</div>
 					<div ng-bind='currentPlayer.basePrice'></div>
 				</div>
