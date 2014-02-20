@@ -22,13 +22,6 @@ module.exports.socket = function(socket,allSockets){
 	});
 
 	socket.on('bidRaised',function(data){
-		//bid should look like 
-		/*{
-			from:"Ninjas",
-			raisedBy:100,
-			forPlayer:"Tharma"
-		}*/
-		
 		//find the particular captain, and check if he has enough points to bid for the person.
 		Captain.findOne({teamName:data.from},function(err,team){
 			if(err){

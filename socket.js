@@ -4,5 +4,6 @@ module.exports = function(io){
 	io.sockets.on('connection',function(socket){
 		require(__dirname+'/viewControllers/dashboardController.js').socket(socket,io.sockets);
 		require(__dirname+"/viewControllers/biddersPanelController.js").socket(socket,io.sockets);
+		require(__dirname+"/viewControllers/homeController.js").socket(socket,io.sockets);
 	});
 };

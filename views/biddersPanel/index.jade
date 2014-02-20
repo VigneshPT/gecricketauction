@@ -1,7 +1,11 @@
 extends ../shared/layout
 block scripts
-	script
-		var team = #{JSON.stringify(team)};
+	script.
+		var teamname = "#{team.teamName}";
 	script(src='/javascripts/geca-angular-app/controllers/bidderController.js')
-	div
-		!{JSON.stringify(team)}
+	div(ng-controller='bidderController')
+		if(team.teamName)
+			div(style='text-align:center')
+				h1 #{team.teamName}
+		include ../includes/display
+		

@@ -37,8 +37,19 @@ app.directive('bid', [function(){
 		link: function($scope, iElm, iAttrs, controller) {
 			
 		},
-		controller: ["$scope", function($scope){
-			console.log(io);
+		controller: ["$scope","$rootScope", function($scope, $rootScope){
+			$scope.team = [];
+			//Socket starts here.
+			
+			 $rootScope.socket.on("teamready", function(team){
+				$scope.team = team;
+				$scope.$apply();
+				});
+			 $rootScope.socket.on("bid", function(teamname){
+			 	console.log("team: "+teamname)
+			 });
+
+
 		}]
 	};
 }]);

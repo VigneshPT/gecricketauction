@@ -45,6 +45,9 @@ module.exports.socket = function(socket,allSockets){
 	//allSockets.emit('connected',Object.keys(users));
 	socket.on('message',function(msg){
 
+		console.log(msg);
+		socket.broadcast.emit("bid",msg)
+
      //  allSockets.socket(users[msg.target]).emit('message',{
      //  		"source": srcUser,
      //  		"type":msg.type,

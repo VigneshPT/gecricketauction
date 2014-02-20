@@ -39,3 +39,6 @@ a {
   border-right: 1px solid #e9e9e9;
   min-height: 500px;
 }
+.bid-container {
+  padding: 20px;
+}
